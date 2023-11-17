@@ -171,12 +171,12 @@ static const char mario_idle_left2 [] PROGMEM = {
         mario_idle_right1,
         mario_idle_right2,
         mario_idle_right1,
-        mario_idle_right2
+        mario_idle_right2,
         mario_turn_left,
         mario_idle_left1,
         mario_idle_left2,
         mario_idle_left1,
-        mario_idle_left2
+        mario_idle_left2,
     };
     static const char* FAST_TYPE_FRAMES [] = {
         mario_turn_right,
@@ -188,7 +188,7 @@ static const char mario_idle_left2 [] PROGMEM = {
         mario_run_left1,
         mario_run_left2,
         mario_run_left1,
-        mario_run_left2
+        mario_run_left2,
     };
 
     oled_render_anim_frame(FAST_TYPE_FRAMES, SLOW_TYPE_FRAMES, 10);
