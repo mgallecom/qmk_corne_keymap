@@ -31,6 +31,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CMD_K LGUI_T(KC_K)
 #define SFT_J LSFT_T(KC_J)
 
+#define XXX KC_NO
+
 #define HMRW S(G(KC_SPC))
 #define ALF A(KC_SPC)
 #define MEDI_ESC LT(_MEDIA, KC_ESC)
@@ -45,6 +47,44 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CUT G(KC_X)
 #define UNDO G(KC_Z)
 
+
+#define MOV_WES A(KC_F16)
+#define MOV_SOU A(KC_F15)
+#define MOV_NOR A(KC_F14)
+#define MOV_EAS A(KC_F13)
+#define FUL_FLO TD(TD_FULL_FLOAT)
+#define MVW_1 S(A(KC_1))
+#define MVW_2 S(A(KC_2))
+#define MVW_3 S(A(KC_3))
+#define MVW_4 S(A(KC_4))
+#define MVW_5 S(A(KC_5))
+#define MVW_6 S(A(KC_6))
+#define MVW_7 S(A(KC_7))
+#define MVW_8 S(A(KC_8))
+#define MVW_9 S(A(KC_9))
+
+#define FCW_1 C(KC_1))
+#define FCW_2 C(KC_2))
+#define FCW_3 C(KC_3))
+#define FCW_4 C(KC_4))
+#define FCW_5 C(KC_5))
+#define FCW_6 C(KC_6))
+#define FCW_7 C(KC_7))
+#define FCW_8 C(KC_8))
+#define FCW_9 C(KC_9))
+
+#define MVW_LEF G(A(KC_F16))
+#define MVW_RIG G(A(KC_F13))
+#define FCS_MV1 TD(TD_MVW_1)
+#define FCS_MV2 TD(TD_MVW_2)
+#define FCS_MV3 TD(TD_MVW_3)
+#define FCS_MV4 TD(TD_MVW_4)
+#define FCS_MV5 TD(TD_MVW_5)
+#define FCS_MV6 TD(TD_MVW_6)
+#define FCS_MV7 TD(TD_MVW_7)
+#define FCS_MV8 TD(TD_MVW_8)
+#define FCS_MV9 TD(TD_MVW_9)
+
 // Layers
 enum {
   _QWERTY,
@@ -57,7 +97,7 @@ enum {
 };
 
 enum {
-    TD_ALFRED_PASTE, TD_SCREEN
+    TD_ALFRED_PASTE, TD_SCREEN, TD_FULL_FLOAT, TD_MVW_1, TD_MVW_2, TD_MVW_3, TD_MVW_4, TD_MVW_5, TD_MVW_6, TD_MVW_7, TD_MVW_8, TD_MVW_9
 };
 
 enum custom_keycodes {
@@ -70,6 +110,17 @@ enum custom_keycodes {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_ALFRED_PASTE] = ACTION_TAP_DANCE_DOUBLE( G(KC_V) , G(A(KC_V)) ),
     [TD_SCREEN] = ACTION_TAP_DANCE_DOUBLE( S(G(KC_4)) , S(G(C(KC_4))) ),
+    [TD_FULL_FLOAT] = ACTION_TAP_DANCE_DOUBLE( A(KC_F18), C(A(KC_F18))),
+    [TD_MVW_1] = ACTION_TAP_DANCE_DOUBLE(MVW_1, FCW_1),
+    [TD_MVW_2] = ACTION_TAP_DANCE_DOUBLE(MVW_2, FCW_2),
+    [TD_MVW_3] = ACTION_TAP_DANCE_DOUBLE(MVW_3, FCW_3),
+    [TD_MVW_4] = ACTION_TAP_DANCE_DOUBLE(MVW_4, FCW_4),
+    [TD_MVW_5] = ACTION_TAP_DANCE_DOUBLE(MVW_5, FCW_5),
+    [TD_MVW_6] = ACTION_TAP_DANCE_DOUBLE(MVW_6, FCW_6),
+    [TD_MVW_7] = ACTION_TAP_DANCE_DOUBLE(MVW_7, FCW_7),
+    [TD_MVW_8] = ACTION_TAP_DANCE_DOUBLE(MVW_8, FCW_8),
+    [TD_MVW_9] = ACTION_TAP_DANCE_DOUBLE(MVW_9, FCW_9),
+
 };
 
 
@@ -159,9 +210,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 */
   [_TILNAV] = LAYOUT_split_3x6_3(
-    _______, SAVE,     PASTE,    COPY,     CUT,      UNDO,                   _______, _______,    A(KC_F19),  A(KC_F18),  A(KC_F17), _______,
-    _______, KC_LCTL,  KC_LALT,  KC_LGUI,  KC_LSFT,  _______,                _______, A(KC_F16),  A(KC_F15),  A(KC_F14),  A(KC_F13), _______,
-    _______, KC_ALGR,  _______,  _______,  _______,  _______,                _______,  _______,   _______,    _______,    _______,   _______,
+    _______, KC_NO,    FCS_MV7,  FCS_MV8,  FCS_MV9,  KC_NO,                   _______, _______,    A(KC_F19),  FUL_FLO,  A(KC_F17), _______,
+    _______, MVW_LEF,  FCS_MV4,  FCS_MV5,  FCS_MV6,  MVW_RIG,                _______, MOV_WES,  MOV_SOU,  MOV_NOR,  MOV_EAS, _______,
+    _______, KC_NO,    FCS_MV1,  FCS_MV2,  FCS_MV3,  XXX,                _______,  _______,   _______,    _______,    _______,   _______,
                                              _______,  _______,  _______,                KC_LCTL, KC_LSFT, _______
   ),
 
