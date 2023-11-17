@@ -31,10 +31,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CMD_D LGUI_T(KC_D)
 #define SFT_F LSFT_T(KC_F)
 
-#define CTL_QUOTE LCTL_T(KC_QUOT)
-#define ALT_L LALT_T(KC_L)
-#define CMD_K LGUI_T(KC_K)
-#define SFT_J LSFT_T(KC_J)
+#define CTL_QUOTE RCTL_T(KC_QUOT)
+#define ALT_L RALT_T(KC_L)
+#define CMD_K RGUI_T(KC_K)
+#define SFT_J RSFT_T(KC_J)
 
 #define XXX KC_NO
 
